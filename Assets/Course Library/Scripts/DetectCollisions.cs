@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveForward : MonoBehaviour
-{ 
-    public float speed;
-
+public class DetectCollisions : MonoBehaviour
+{
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +13,11 @@ public class MoveForward : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //makes objects move infinitely
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        
     }
+    void OnTriggerEnter(Collider other) {
+      Destroy(gameObject);
+      Destroy(other.gameObject);
+      //destroys colliding objects
+    }   
 }
